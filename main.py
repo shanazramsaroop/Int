@@ -10,5 +10,15 @@ if answer1==correctAnswer1:
 else:
     print("Oops! Not quite right.")
 
-print("Number 2: ")
-answer2=int(input())
+print("Number 2: The cost of 2 phones and 3 airpods is $750, and the cost of 3 phone and 5 airpods $1150."
+      " How much does 2 airpods cost? ")
+print("Choose an answer")
+print("a. $50")
+print("b. $120")
+print("c. $100")
+print("d. $80")
+answer2=str(input("Your answer: "))
+if answer2 == "c":
+    print("Correct! You are so smart!")
+else:
+    print("Oops! Not quite right.")
