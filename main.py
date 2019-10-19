@@ -15,15 +15,15 @@ def number1(answer1):
     print("Correct! You are so smart. ")
 
 
-def number2(line):
-    for x in range(line + 1):
+def number2(a, b):
+    for x in range(a, b + 1):
         print(x)
         x += 1
 
 def number3(guess):
 
     import random
-    answer3 = random.randint(1, 11)
+    answer3 = random.randint(1, 21)
     guesses = int()
     guesses = 0
 
@@ -33,10 +33,10 @@ def number3(guess):
             print("Too low! Try again. ")
         elif guess > answer3:
             print("Too high! Try again. ")
-        elif guess < 1 or guess > 10:
+        elif guess < 1 or guess > 20:
             print("Invalid number. Try again. ")
 
-        guess = int(input("Guess any number between 1 and 10"))
+        guess = int(input("Guess any number between 1 and 20"))
 
     print("Correct, it took you", guesses, "guesses.")
 
@@ -54,14 +54,17 @@ def number(result):
     #option 2
     elif result == 2:
         print("Print numbers!")
-        line = int(input("Enter any number"))
-        number2(line)
+        print("Enter any  2 numbers")
+        line1 = int(input("First number: "))
+        line2 = int(input("Second number: "))
+        number2(line1, line2)
+
         main()
 
     #option 3
     elif result == 3:
         print("Guessing game!")
-        guess = int(input("Guess any number between 1 and 10"))
+        guess = int(input("Guess any number between 1 and 20"))
         number3(guess)
         main()
 
@@ -69,7 +72,6 @@ def number(result):
     elif result > 4 or result < 1:
         print("Invalid number. Please enter a valid number. ")
         main()
-
 
 
 def main():
@@ -83,6 +85,7 @@ def main():
     print("")
     result = int(input("I choose: "))
     number(result)
+
 
 main()
 
