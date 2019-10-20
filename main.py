@@ -1,11 +1,11 @@
 #Shanaz Ramsaroop
-#This is program with many games
+#This is program with number games
 
 
 def number1(answer1):
     correctAnswer1 = (103 % 5)
     while answer1 != correctAnswer1:
-        print("Oops! Not quite right, try again. ")
+        print("Oops! Not quite right. ")
         print("Enter 1 to try again. ")
         print("Enter 2 to select another game. ")
         selection = int(input())
@@ -23,7 +23,7 @@ def number2(a, b):
 def number3(guess):
 
     import random
-    answer3 = random.randint(1, 21)
+    answer3 = random.randint(1, 20)
     guesses = int()
     guesses = 0
 
