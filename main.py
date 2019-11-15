@@ -2,35 +2,26 @@
 #This is a program with number games
 
 
-def tryAgain1():
+def tryAgain():
     print("Enter 1 to try again. ")
     print("Enter 2 to select another game. ")
     print("")
-    var = int(input())
-    if var == 2:
-        main()
-    elif var == 1:
-        number(1)
 
-def tryAgain3():
-    print("Enter 1 to try again. ")
-    print("Enter 2 to select another game. ")
-    print("")
-    var = int(input())
-    if var == 2:
-        main()
-    elif var == 1:
-        number(3)
 
 def number1(answer1):
     correctAnswer1 = (103 % 5)
     while answer1 != correctAnswer1:
         print("Oops! Not quite right. ")
         print("")
-        tryAgain1()
+        tryAgain()
+        var = int(input())
+        if var == 2:
+            main()
+        elif var == 1:
+            number(answer1)
 
     print("Good job! You got it correct. ")
-
+    print("")
 
 def number2(a, b):
     for x in range(a, b + 1):
@@ -43,24 +34,27 @@ def number3(guess):
     answer3 = random.randint(1, 20)
     guesses = int()
     guesses = 0
+    if guess < 1 or guess > 20:
+        print("Invalid number. Try again. ")
 
     while answer3 != guess:
         guesses += 1
-        if guess < answer3:
+        if (guess < answer3):
             print("Too low! Try again. ")
-        elif guess > answer3:
+        elif (guess > answer3):
             print("Too high! Try again. ")
         elif guess < 1 or guess > 20:
             print("Invalid number. Try again. ")
 
         attempts = 5 - guesses
 
-        while guesses > 5:
-            print("Sorry, you ran out of attempts.")
-            tryAgain3()
-        print("Number of attempts left =", attempts)
-        guess = int(input("Guess any number between 1 and 20"))
+        while guesses < 5:
+            print("Number of attempts left =", attempts)
+            guess = int(input("Guess any number between 1 and 20"))
 
+        print("Sorry, you ran out of attempts.")
+        tryAgain()
+        
     if guesses == 0:
         print("You got it on the first try, good guess!")
 
@@ -103,6 +97,7 @@ def number(result):
         print("")
         number3(guess)
         main()
+        
 
    #invalid number
     elif result > 4 or result < 1:
