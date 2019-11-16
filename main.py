@@ -2,22 +2,18 @@
 #This is a program with number games
 
 
-def tryAgain():
-    print("Enter 1 to try again. ")
-    print("Enter 2 to select another game. ")
-    print("")
-
-
 def number1(answer1):
     correctAnswer1 = (103 % 5)
     while answer1 != correctAnswer1:
         print("Oops! Not quite right. ")
         print("")
-        tryAgain()
+        print("Enter 1 to try again.")
+        print("Enter 2 to exit and play another game.")
         var = int(input())
         if var == 2:
             main()
         elif var == 1:
+            answer1 = int(input("Your answer = "))
             number(answer1)
 
     print("Good job! You got it correct. ")
@@ -37,32 +33,33 @@ def number3(guess):
     if guess < 1 or guess > 20:
         print("Invalid number. Try again. ")
 
-    while answer3 != guess:
+    while answer3 != guess and guesses < 5:
         guesses += 1
-        if (guess < answer3):
+        if guess < answer3:
             print("Too low! Try again. ")
-        elif (guess > answer3):
+        elif guess > answer3:
             print("Too high! Try again. ")
-        elif guess < 1 or guess > 20:
-            print("Invalid number. Try again. ")
 
         attempts = 5 - guesses
 
-        while guesses < 5:
+        if guesses <= 5:
             print("Number of attempts left =", attempts)
             guess = int(input("Guess any number between 1 and 20"))
-
-        print("Sorry, you ran out of attempts.")
-        tryAgain()
+        elif guess > 5:
+            print("Sorry, you ran out of attempts.")
+            tryAgain()
         
     if guesses == 0:
         print("You got it on the first try, good guess!")
 
     elif guesses == 1:
-        print("Correct, it took you just one guess!")
+        print("Correct, it took you just two guesses!")
 
-    elif guesses <= 5:
+    elif guesses < 5:
         print("Correct, it took you", guesses, "guesses.")
+
+    elif guesses == 5:
+        print("Close one! your nearly ran out of guesses!")
 
 
 def number(result):
@@ -81,7 +78,7 @@ def number(result):
     elif result == 2:
         print("")
         print("Print numbers!")
-        print("Enter any  2 numbers")
+        print("Enter any  2 numbers, BUT the first number must be smaller than the second number.")
         line1 = int(input("First number: "))
         line2 = int(input("Second number: "))
         print("")
@@ -93,7 +90,7 @@ def number(result):
     elif result == 3:
         print("")
         print("Guessing game!")
-        guess = int(input("Guess any number between 1 and 20"))
+        guess = int(input("You have five guesses to guess a number between 1 and 20"))
         print("")
         number3(guess)
         main()
