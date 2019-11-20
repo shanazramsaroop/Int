@@ -4,17 +4,15 @@
 
 def number1(answer1):
     correctAnswer1 = (103 % 5)
-    while answer1 != correctAnswer1:
+    while answer1 != "3" and answer1 != "three":
         print("Oops! Not quite right. ")
         print("")
         print("Enter 1 to try again.")
-        print("Enter 2 to exit and play another game.")
+        print("Enter 2 to choose another game.")
         var = int(input())
-        if var == 2:
-            main()
-        elif var == 1:
-            answer1 = int(input("Your answer = "))
-            number(answer1)
+        if var == 1:
+            answer1 = input("Your answer = ")
+            number1(answer1)
 
     print("Good job! You got it correct. ")
     print("")
@@ -47,7 +45,7 @@ def number3(guess):
             guess = int(input("Guess any number between 1 and 20"))
         elif guess > 5:
             print("Sorry, you ran out of attempts.")
-            tryAgain()
+
         
     if guesses == 0:
         print("You got it on the first try, good guess!")
@@ -69,7 +67,7 @@ def number(result):
         print("")
         print("Math question!")
         print("What is the remainder if 103 is divided by 5?")
-        answer1 = int(input("Your answer = "))
+        answer1 = (input("Your answer = "))
         print("")
         number1(answer1)
         main()
