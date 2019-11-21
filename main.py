@@ -1,37 +1,74 @@
-#Shanaz Ramsaroop
-#This is a program with number games
+"""
+__author__ = Shanaz Ramsaroop
+ This is a program with number games
+"""
+
+
+def try_again1():
+    """allows the user to try option 1 again or choose another game"""
+    print("Enter 1 to try again.")
+    print("Enter 2 to choose another game.")
+    var = int(input())
+    if var == 1:
+        answer1 = input("Your answer = ")
+        number1(answer1)
+    elif var == 2:
+        main()
+
+
+def try_again2():
+    """allows the user to try option 3 again or choose another game"""
+    print("Enter 1 to try again.")
+    print("Enter 2 to choose another game.")
+    var = int(input())
+    if var == 1:
+        guess = input("Your answer = ")
+        number3(guess)
+    elif var == 2:
+        main()
 
 
 def number1(answer1):
-    correctAnswer1 = (103 % 5)
+    """
+    tests if the inputted answer is correct or wrong and outputs text
+    accordingly
+    :param answer1: answer for option 1
+    """
     while answer1 != "3" and answer1 != "three":
         print("Oops! Not quite right. ")
         print("")
-        print("Enter 1 to try again.")
-        print("Enter 2 to choose another game.")
-        var = int(input())
-        if var == 1:
-            answer1 = input("Your answer = ")
-            number1(answer1)
+        try_again1()
 
     print("Good job! You got it correct. ")
     print("")
 
+
 def number2(a, b):
+    """
+    prints all the numbers from the first inputted number to the second
+    inputted number
+    :param a: first number
+    :param b: second number
+    """
     for x in range(a, b + 1):
         print(x)
         x += 1
 
-def number3(guess):
 
+def number3(guess):
+    """
+    tests if the guess is correct or wrong and outputs text accordingly
+    :param guess: answer for option 3
+    """
     import random
     answer3 = random.randint(1, 20)
     guesses = int()
     guesses = 0
     if guess < 1 or guess > 20:
         print("Invalid number. Try again. ")
+        number(3)
 
-    while answer3 != guess and guesses < 5:
+    while answer3 != guess and guesses <= 5:
         guesses += 1
         if guess < answer3:
             print("Too low! Try again. ")
@@ -43,10 +80,10 @@ def number3(guess):
         if guesses <= 5:
             print("Number of attempts left =", attempts)
             guess = int(input("Guess any number between 1 and 20"))
-        elif guess > 5:
+        elif guesses > 5:
             print("Sorry, you ran out of attempts.")
+            try_again2()
 
-        
     if guesses == 0:
         print("You got it on the first try, good guess!")
 
@@ -61,8 +98,12 @@ def number3(guess):
 
 
 def number(result):
-
-    #option 1
+    """
+    Takes the user's input and sorts it to the appropriate gaming option or
+    indicates the invalidity of the input
+    :param result: user's choice from menu
+    """
+    # option 1
     if result == 1:
         print("")
         print("Math question!")
@@ -72,11 +113,12 @@ def number(result):
         number1(answer1)
         main()
 
-    #option 2
+    # option 2
     elif result == 2:
         print("")
         print("Print numbers!")
-        print("Enter any  2 numbers, BUT the first number must be smaller than the second number.")
+        print("Enter any  2 numbers, BUT the first number must be smaller "
+              "than the second number.")
         line1 = int(input("First number: "))
         line2 = int(input("Second number: "))
         print("")
@@ -84,17 +126,17 @@ def number(result):
 
         main()
 
-    #option 3
+    # option 3
     elif result == 3:
         print("")
         print("Guessing game!")
-        guess = int(input("You have five guesses to guess a number between 1 and 20"))
+        guess = int(input("You have five guesses to guess a number between 1 "
+                          "and 20"))
         print("")
         number3(guess)
         main()
-        
 
-   #invalid number
+    # invalid number
     elif result > 4 or result < 1:
         print("")
         print("Invalid number. Please enter a valid number. ")
@@ -103,6 +145,8 @@ def number(result):
 
 
 def main():
+    """This is the menu, where users can choose which game they want to play
+    or exit"""
     print("")
     print("Welcome to my number game!")
     print("")
@@ -117,10 +161,3 @@ def main():
 
 
 main()
-
-
-
-
-
-
-
