@@ -20,8 +20,8 @@ def try_again1():
                 main()
 
         except ValueError:
-            print("This is not a number")
-            print("Please enter a number.")
+            print("This is not a number.")
+            print("Please enter a whole number.")
 
 
 def number1(answer1):
@@ -136,7 +136,7 @@ def number(result):
 
             except ValueError:
                 print("This is not a number.")
-                print("Please enter a number.")
+                print("Please enter a whole number.")
                 number(2)
         main()
 
@@ -156,7 +156,7 @@ def number(result):
 
             except ValueError:
                 print("This is not a number.")
-                print("Please enter a number.")
+                print("Please enter a whole number.")
                 number(3)
         main()
 
@@ -168,7 +168,7 @@ def number(result):
         main()
 
     elif result == 4:
-        print("Bye")
+        print("Bye!")
 
 
 def main():
@@ -191,8 +191,8 @@ def main():
             number(result)
 
         except ValueError:
-            print("This is not a number")
-            print("Please enter a number.")
+            print("This is not a number.")
+            print("Please enter a whole number.")
 
 
 main()
