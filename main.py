@@ -5,7 +5,7 @@ __author__ = Shanaz Ramsaroop
 
 
 def try_again1():
-    """allows the user to try option 1 again or choose another game"""
+    """allows the user to try option 1 again or choose another game."""
     print("Enter 1 to try again.")
     print("Enter 2 to choose another game.")
     var = int(input())
@@ -16,14 +16,14 @@ def try_again1():
         main()
 
 
-def try_again2():
-    """allows the user to try option 3 again or choose another game"""
+def try_again3():
+    """allows the user to try option 3 again or choose another game."""
     print("Enter 1 to try again.")
     print("Enter 2 to choose another game.")
     var = int(input())
     if var == 1:
-        guess = input("Your answer = ")
-        number3(guess)
+        answer1 = input("Your answer = ")
+        number1(answer1)
     elif var == 2:
         main()
 
@@ -31,25 +31,41 @@ def try_again2():
 def number1(answer1):
     """
     tests if the inputted answer is correct or wrong and outputs text
-    accordingly
+    accordingly.
     :param answer1: answer for option 1
     """
-    while answer1 != "3" and answer1 != "three":
+    guess1 = 0
+
+    while answer1 != "3" and guess1 == 0:
+        guess1 += 1
         print("Oops! Not quite right. ")
         print("")
-        try_again1()
+        print("Enter 1 to try again.")
+        print("Enter 2 to choose another game.")
+        var = int(input())
+        if var == 1:
+            answer1 = input("Your answer = ")
+            number1(answer1)
+        elif var == 2:
+            main()
 
-    print("Good job! You got it correct. ")
-    print("")
+    if answer1 == "3":
+        print("Good job! You got it correct. ")
+        print("")
 
 
 def number2(a, b):
     """
     prints all the numbers from the first inputted number to the second
-    inputted number
+    inputted number.
     :param a: first number
     :param b: second number
     """
+
+    if a > b:
+        print("Sorry, the first number is larger than the second.")
+        print("Please enter new numbers.")
+
     for x in range(a, b + 1):
         print(x)
         x += 1
@@ -57,7 +73,7 @@ def number2(a, b):
 
 def number3(guess):
     """
-    tests if the guess is correct or wrong and outputs text accordingly
+    tests if the guess is correct or wrong and outputs text accordingly.
     :param guess: answer for option 3
     """
     import random
@@ -82,7 +98,6 @@ def number3(guess):
             guess = int(input("Guess any number between 1 and 20"))
         elif guesses > 5:
             print("Sorry, you ran out of attempts.")
-            try_again2()
 
     if guesses == 0:
         print("You got it on the first try, good guess!")
@@ -94,15 +109,16 @@ def number3(guess):
         print("Correct, it took you", guesses, "guesses.")
 
     elif guesses == 5:
-        print("Close one! your nearly ran out of guesses!")
+        print("Close one! You nearly ran out of guesses!")
 
 
 def number(result):
     """
     Takes the user's input and sorts it to the appropriate gaming option or
-    indicates the invalidity of the input
+    indicates the invalidity of the input.
     :param result: user's choice from menu
     """
+
     # option 1
     if result == 1:
         print("")
@@ -123,7 +139,6 @@ def number(result):
         line2 = int(input("Second number: "))
         print("")
         number2(line1, line2)
-
         main()
 
     # option 3
@@ -143,10 +158,13 @@ def number(result):
         print("")
         main()
 
+    elif result == 4:
+        print("Bye")
+
 
 def main():
     """This is the menu, where users can choose which game they want to play
-    or exit"""
+    or exit."""
     print("")
     print("Welcome to my number game!")
     print("")
