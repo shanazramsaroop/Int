@@ -6,26 +6,22 @@ __author__ = Shanaz Ramsaroop
 
 def try_again1():
     """allows the user to try option 1 again or choose another game."""
-    print("Enter 1 to try again.")
-    print("Enter 2 to choose another game.")
-    var = int(input())
-    if var == 1:
-        answer1 = input("Your answer = ")
-        number1(answer1)
-    elif var == 2:
-        main()
+    var_is_bad = True
+    while var_is_bad:
+        try:
+            print("Enter 1 to try again.")
+            print("Enter 2 to choose another game.")
+            var = int(input())
+            var_is_bad = False
+            if var == 1:
+                answer1 = input("Your answer = ")
+                number1(answer1)
+            elif var == 2:
+                main()
 
-
-def try_again3():
-    """allows the user to try option 3 again or choose another game."""
-    print("Enter 1 to try again.")
-    print("Enter 2 to choose another game.")
-    var = int(input())
-    if var == 1:
-        answer1 = input("Your answer = ")
-        number1(answer1)
-    elif var == 2:
-        main()
+        except ValueError:
+            print("This is not a number")
+            print("Please enter a number.")
 
 
 def number1(answer1):
@@ -40,17 +36,11 @@ def number1(answer1):
         guess1 += 1
         print("Oops! Not quite right. ")
         print("")
-        print("Enter 1 to try again.")
-        print("Enter 2 to choose another game.")
-        var = int(input())
-        if var == 1:
-            answer1 = input("Your answer = ")
-            number1(answer1)
-        elif var == 2:
-            main()
+        try_again1()
 
     if answer1 == "3":
         print("Good job! You got it correct. ")
+        print("")
 
 
 def number2(a, b):
@@ -77,7 +67,6 @@ def number3(guess):
     """
     import random
     answer3 = random.randint(1, 20)
-    guesses = int()
     guesses = 0
     if guess < 1 or guess > 20:
         print("Invalid number. Try again. ")
@@ -141,7 +130,8 @@ def number(result):
             try:
                 line1 = int(input("First number: "))
                 line2 = int(input("Second number: "))
-                line1_is_bad = False or line2_is_bad
+                line1_is_bad = False
+                line2_is_bad = False
                 number2(line1, line2)
 
             except ValueError:
