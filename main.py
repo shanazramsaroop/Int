@@ -51,7 +51,6 @@ def number1(answer1):
 
     if answer1 == "3":
         print("Good job! You got it correct. ")
-        print("")
 
 
 def number2(a, b):
@@ -124,8 +123,8 @@ def number(result):
         print("")
         print("Math question!")
         print("What is the remainder if 103 is divided by 5?")
-        answer1 = (input("Your answer = "))
         print("")
+        answer1 = input("Your answer = ")
         number1(answer1)
         main()
 
@@ -135,20 +134,40 @@ def number(result):
         print("Print numbers!")
         print("Enter any  2 numbers, BUT the first number must be smaller "
               "than the second number.")
-        line1 = int(input("First number: "))
-        line2 = int(input("Second number: "))
         print("")
-        number2(line1, line2)
+        line1_is_bad = True
+        line2_is_bad = True
+        while line1_is_bad or line2_is_bad:
+            try:
+                line1 = int(input("First number: "))
+                line2 = int(input("Second number: "))
+                line1_is_bad = False or line2_is_bad
+                number2(line1, line2)
+
+            except ValueError:
+                print("This is not a number.")
+                print("Please enter a number.")
+                number(2)
         main()
 
     # option 3
     elif result == 3:
         print("")
         print("Guessing game!")
-        guess = int(input("You have five guesses to guess a number between 1 "
-                          "and 20"))
         print("")
-        number3(guess)
+        guess_is_bad = True
+        while guess_is_bad:
+            try:
+                guess = int(
+                    input("You have five guesses to guess a number between 1 "
+                          "and 20"))
+                guess_is_bad = False
+                number3(guess)
+
+            except ValueError:
+                print("This is not a number.")
+                print("Please enter a number.")
+                number(3)
         main()
 
     # invalid number
@@ -174,8 +193,16 @@ def main():
     print(" 3) Guessing game ")
     print(" 4) Exit")
     print("")
-    result = int(input("I choose: "))
-    number(result)
+    result_is_bad = True
+    while result_is_bad:
+        try:
+            result = int(input("Your choice: "))
+            result_is_bad = False
+            number(result)
+
+        except ValueError:
+            print("This is not a number")
+            print("Please enter a number.")
 
 
 main()
